@@ -434,7 +434,7 @@ void pvCam::pvCamAcquisitionTask()
         callParamCallbacks(addr, addr);
 
         //Acquire Image Start
-        if (!pl_exp_start_seq (detectorHandle, rawData))
+        if (!pl_exp_start_seq (detectorHandle, (void *) rawData))
             outputErrorMessage (functionName, "pl_exp_start_seq");
 
         /* Wait for acquisition to complete, but allow acquire stop events to be handled */
@@ -1156,7 +1156,7 @@ const char *availStr[] = {"NO", "YES"};
     status |= setIntegerParam(addr, PVCamDetectorModeRBV, ui32Value);
 
 
-
+/*
 //Trigger Edge
     if (!pl_get_param(detectorHandle, PARAM_EDGE_TRIGGER, ATTR_AVAIL, (void *) &paramAvail))
         outputErrorMessage (functionName, "pl_get_param(PARAM_EDGE_TRIGGER, ATTR_AVAIL)");
@@ -1178,7 +1178,7 @@ const char *availStr[] = {"NO", "YES"};
         status |= setIntegerParam(addr, PVCamTriggerEdgeRBV, 0);
     }
 
-
+*/
     //device driver version
     if (!pl_ddi_get_ver(&ui16Value) ) {
         outputErrorMessage (functionName, "pl_ddi_get_ver");
@@ -1231,6 +1231,7 @@ const char *availStr[] = {"NO", "YES"};
     printf("Head Serial Number %s\n", cValue);
     status |= setStringParam(addr, PVCamHeadSerialNumRBV, cValue);
 
+/*
     // Serial Number
     if (!pl_get_param(detectorHandle, PARAM_SERIAL_NUM, ATTR_AVAIL, (void *) &paramAvail))
         outputErrorMessage (functionName, "pl_get_param(PARAM_SERIAL_NUM, ATTR_AVAIL)");
@@ -1247,6 +1248,7 @@ const char *availStr[] = {"NO", "YES"};
         ui16Value = (uns16)0;
     }
     status |= setIntegerParam(addr, PVCamSerialNumRBV, ui16Value);
+*/
 
     // PCI FirmwareVersion
     if (!pl_get_param(detectorHandle, PARAM_PCI_FW_VERSION, ATTR_AVAIL, (void *) &paramAvail))
@@ -1254,10 +1256,12 @@ const char *availStr[] = {"NO", "YES"};
     printf ("PCI Firmware version available: %s\n", availStr[paramAvail]);
     if (paramAvail)
     {
+/*
         if (!pl_get_param (detectorHandle, PARAM_SERIAL_NUM, ATTR_CURRENT, (void *) &ui16Value)) {
             outputErrorMessage (functionName, "pl_get_param (PARAM_SERIAL_NUM, ATTR_CURRENT)");
         }
         printf("Serial Number %d\n", ui16Value);
+*/
     }
     else {
         ui16Value = (uns16)0;
@@ -1347,6 +1351,7 @@ void pvCam::initializeDetector (void)
         tempAvailable = true;
     }
 
+/*
     //Trigger
     if (!pl_get_param(detectorHandle, PARAM_EDGE_TRIGGER, ATTR_AVAIL, (void *) &paramAvail))
         outputErrorMessage (functionName, "pl_get_param(PARAM_EDGE_TRIGGER, ATTR_AVAIL)");
@@ -1371,6 +1376,7 @@ void pvCam::initializeDetector (void)
 //            outputErrorMessage (functionName, "pl_set_param(PARAM_LOGIC_OUTPUT)");
     }
 
+*/
 
     //pre/post shutter compensation
     if (!pl_get_param(detectorHandle, PARAM_SHTR_OPEN_DELAY, ATTR_AVAIL, (void *) &paramAvail))
