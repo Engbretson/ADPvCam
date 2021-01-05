@@ -488,7 +488,7 @@ record(stringin, "$(P)$(R)PVCamVers_RBV")
 {
    field(DTYP, "asynOctetRead")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PVCAM_PVCAMVERS_RBV")
-   field(VAL,  "Unknown")
+   field(VAL,  "3.8.3")
    field(SCAN, "I/O Intr")
 }
 
@@ -498,7 +498,7 @@ record(stringin, "$(P)$(R)DevDrvVers_RBV")
 {
    field(DTYP, "asynOctetRead")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PVCAM_DEVDRVVERS_RBV")
-   field(VAL,  "Unknown")
+   field(VAL,  "???")
    field(SCAN, "I/O Intr")
 }
 
@@ -508,7 +508,7 @@ record(stringin, "$(P)$(R)CameraFirmwareVers_RBV")
 {
    field(DTYP, "asynOctetRead")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PVCAM_CAMFIRMWAREVERS_RBV")
-   field(VAL,  "Unknown")
+   field(VAL,  "14.37")
    field(SCAN, "I/O Intr")
 }
 
@@ -534,6 +534,7 @@ record(longin, "$(P)$(R)SerialNum_RBV")
    field(DTYP, "asynInt32")
    field(INP,  "@asyn($(PORT),$(ADDR),$(TIMEOUT))PVCAM_SERIALNUM_RBV")
    field(SCAN, "I/O Intr")
+   field(VAL,  "48904")
 }
 
 

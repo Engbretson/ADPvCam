@@ -2,17 +2,11 @@ errlogInit(20000)
 
 < envPaths
 
-epicsEnvSet("IOC","ioc16PvCam")
-epicsEnvSet("ENGINEER","Engbretson")
-epicsEnvSet("GROUP","HP-CAT")
-epicsEnvSet("LOCATION","Sector 16")
-
-
 dbLoadDatabase("$(TOP)/dbd/pvCamApp.dbd"
 pvCamApp_registerRecordDeviceDriver(pdbbase)
 
 # Prefix for all records
-epicsEnvSet("PREFIX", "16PVCAM1:")
+epicsEnvSet("PREFIX", "13PVCAM1:")
 # The port name for the detector
 epicsEnvSet("PORT",   "PVCAM")
 # The queue size for all plugins
@@ -49,7 +43,6 @@ dbLoadRecords("$(ADCORE)/db/NDStdArrays.template", "P=$(PREFIX),R=image:,PORT=Im
 
 # Load all other plugins using commonPlugins.cmd
 < $(ADCORE)/iocBoot/commonPlugins.cmd
-
 set_requestfile_path("$(ADPVCAM)/pvcamApp/Db")
 
 #asynSetTraceIOMask("$(PORT)",0,2)

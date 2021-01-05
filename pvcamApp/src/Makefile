@@ -14,9 +14,9 @@ USR_CXXFLAGS += -DWIN32
 LIBRARY_IOC = $(LIBRARY_NAME)
 
 else ifeq (windows-x64-static, $(findstring windows-x64-static, $(T_A)))
-USR_CFLAGS +=   -DWIN64
-USR_CXXFLAGS += -DWIN64
+
 LIBRARY_IOC = $(LIBRARY_NAME)
+
 
 #else ifeq (cygwin-x86, $(findstring cygwin-x86, $(T_A)))
 #USR_CFLAGS +=   -DWIN32

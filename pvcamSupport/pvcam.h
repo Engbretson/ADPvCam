@@ -239,7 +239,7 @@ enum
 { NORMAL_COOL, CRYO_COOL };
 
 /************************** Class 2: Name/ID sizes ***************************/
-#define CCD_NAME_LEN  17           /* Includes space for the null terminator */
+#define CCD_NAME_LEN  32           /* Includes space for the null terminator */
 #define MAX_ALPHA_SER_NUM_LEN 32   /* Includes space for the null terminator */
 
 /*********************** Class 2: MPP capability flags ***********************/

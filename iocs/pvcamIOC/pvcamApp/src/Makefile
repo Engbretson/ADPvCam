@@ -14,6 +14,14 @@ PROD_NAME    = pvCamApp
 ifeq (win32-x86, $(findstring win32-x86, $(T_A)))
 PROD_IOC += $(PROD_NAME)
 
+else ifeq (windows-x64-static, $(findstring windows-x64-static, $(T_A)))
+PROD_IOC += $(PROD_NAME)
+
+else ifeq (windows-x64, $(findstring windows-x64, $(T_A)))
+PROD_IOC += $(PROD_NAME)
+
+
+
 #else ifeq (cygwin-x86, $(findstring cygwin-x86, $(T_A)))
 #PROD_IOC += $(PROD_NAME)
 
@@ -34,6 +42,10 @@ PROD_LIBS += pvCam
 
 ifeq (win32-x86, $(findstring win32-x86, $(T_A)))
 PROD_LIBS += pvcam32 pv_icl32
+
+else ifeq (windows-x64-static, $(findstring windows-x64-static, $(T_A)))
+PROD_LIBS += pvcam64 
+
 
 else ifeq (cygwin-x86, $(findstring cygwin-x86, $(T_A)))
 PROD_LIBS += pvcam32 pv_icl32
